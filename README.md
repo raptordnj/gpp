@@ -35,6 +35,9 @@ go install github.com/raptordnj/gpp/cmd/gpp@latest   # installs gpp into $(go en
 gpp version
 ```
 
+Prebuilt binaries for Linux, macOS and Windows (amd64/arm64) are attached to
+each [GitHub release](https://github.com/raptordnj/gpp/releases).
+
 Or from a clone:
 
 ```bash
