@@ -1,0 +1,30 @@
+package main
+
+import "fmt"
+
+class Person {
+	private name string
+
+	constructor(name string) {
+		this.name = name
+	}
+
+	public function SayHello() {
+		fmt.Println("Hello,", this.name)
+	}
+}
+
+class Developer extends Person {
+	constructor(name string) {
+		super(name)
+	}
+
+	override function SayHello() {
+		fmt.Println("Hello, developer!")
+	}
+}
+
+function main() {
+	developer := new Developer("Tohid")
+	developer.SayHello()
+}

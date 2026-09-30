@@ -1,0 +1,68 @@
+package main
+
+import "fmt"
+
+class Counter {
+	private count int = 10
+	public Label string
+
+	constructor(label string) {
+		this.Label = label
+	}
+
+	public function Increment() {
+		this.count++
+	}
+
+	public function Value() int {
+		return this.count
+	}
+}
+
+class Math {
+	public static PI float64 = 3.1415926535
+
+	public static function Add(a int, b int) int {
+		return a + b
+	}
+}
+
+enum Status {
+	Pending
+	Processing
+	Completed
+	Cancelled
+}
+
+class User {
+	private _name string
+
+	public property Name string {
+		get {
+			return this._name
+		}
+		set {
+			this._name = value
+		}
+	}
+}
+
+function main() {
+	c := new Counter("clicks")
+	c.Increment()
+	c.Increment()
+	fmt.Println(c.Label, c.Value())
+
+	fmt.Println(Math.Add(10, 20), Math.PI)
+
+	s := Status.Processing
+	fmt.Println(s, s == StatusProcessing, Status.Completed)
+
+	u := new User()
+	u.Name = "Tohid"
+	u.Name += "!"
+	fmt.Println(u.Name)
+
+	p := new(User) // plain Go allocation still works
+	fmt.Println(p.Name == "")
+}

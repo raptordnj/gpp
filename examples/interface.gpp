@@ -1,0 +1,56 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+class User {
+	public ID int
+	public Name string
+}
+
+interface Repository {
+	function Find(id int) (*User, error)
+	function Delete(id int) error
+}
+
+class MemoryRepository implements Repository {
+	private users map[int]*User
+
+	constructor() {
+		this.users = map[int]*User{}
+	}
+
+	public function Save(u *User) {
+		this.users[u.ID] = u
+	}
+
+	public function Find(id int) (*User, error) {
+		u, ok := this.users[id]
+		if !ok {
+			return nil, errors.New("user not found")
+		}
+		return u, nil
+	}
+
+	public function Delete(id int) error {
+		if _, err := this.Find(id); err != nil {
+			return err
+		}
+		delete(this.users, id)
+		return nil
+	}
+}
+
+function main() {
+	repo := new MemoryRepository()
+	repo.Save(&User{ID: 1, Name: "Tohid"})
+
+	var r Repository = repo
+	u, err := r.Find(1)
+	fmt.Println(u.Name, err)
+	fmt.Println(r.Delete(1))
+	_, err = r.Find(1)
+	fmt.Println(err)
+}

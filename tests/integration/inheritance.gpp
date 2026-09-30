@@ -1,0 +1,63 @@
+package main
+
+import "fmt"
+
+class Base {
+	protected log []string
+	private id int = 7
+
+	constructor() {
+		this.log = append(this.log, "Base()")
+	}
+
+	public function ID() int {
+		return this.id
+	}
+
+	public function Describe() string {
+		return "base"
+	}
+}
+
+class Middle extends Base {
+	protected level int
+
+	constructor(level int) {
+		super()
+		this.level = level
+		this.log = append(this.log, fmt.Sprintf("Middle(%d)", level))
+	}
+
+	override function Describe() string {
+		return "middle>" + super.Describe()
+	}
+}
+
+class Leaf extends Middle {
+	constructor() {
+		super(2)
+		this.log = append(this.log, "Leaf()")
+	}
+
+	override function Describe() string {
+		return "leaf>" + super.Describe()
+	}
+
+	public function Log() []string {
+		return this.log
+	}
+}
+
+class Implicit extends Base {
+	public extra string = "x"
+}
+
+function main() {
+	l := new Leaf()
+	fmt.Println(l.Describe())
+	fmt.Println(l.Log())
+	fmt.Println(l.ID())
+
+	i := new Implicit()
+	fmt.Println(i.extra, i.ID())
+}

@@ -1,0 +1,69 @@
+package main
+
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
+
+interface Shape {
+	function Area() float64
+	function Name() string
+}
+
+abstract class BaseShape implements fmt.Stringer {
+	protected label string
+
+	constructor(label string) {
+		this.label = label
+	}
+
+	public function Name() string {
+		return this.label
+	}
+
+	public function String() string {
+		return "<" + this.label + ">"
+	}
+
+	abstract function Area() float64
+}
+
+class Rect extends BaseShape implements Shape {
+	private w float64
+	private h float64
+
+	constructor(w float64, h float64) {
+		super("rect")
+		this.w = w
+		this.h = h
+	}
+
+	override function Area() float64 {
+		return this.w * this.h
+	}
+}
+
+class Circle extends BaseShape implements Shape {
+	private r float64
+
+	constructor(r float64) {
+		super("circle")
+		this.r = r
+	}
+
+	override function Area() float64 {
+		return 3 * this.r * this.r
+	}
+}
+
+function main() {
+	shapes := []Shape{new Rect(2, 3), new Circle(1)}
+	sort.Slice(shapes, func(i, j int) bool { return shapes[i].Area() < shapes[j].Area() })
+	var names []string
+	for _, s := range shapes {
+		names = append(names, fmt.Sprintf("%s=%.0f", s.Name(), s.Area()))
+	}
+	fmt.Println(strings.Join(names, ", "))
+	fmt.Println(new Rect(1, 1))
+}

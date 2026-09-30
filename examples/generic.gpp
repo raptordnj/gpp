@@ -1,0 +1,45 @@
+package main
+
+import "fmt"
+
+class Repository<T> {
+	private items []T
+
+	public function Add(item T) {
+		this.items = append(this.items, item)
+	}
+
+	public function All() []T {
+		return this.items
+	}
+}
+
+class Pair<K comparable, V any> {
+	public Key K
+	public Value V
+
+	constructor(key K, value V) {
+		this.Key = key
+		this.Value = value
+	}
+}
+
+func Map[T, U any](xs []T, f func(T) U) []U {
+	out := make([]U, 0, len(xs))
+	for _, x := range xs {
+		out = append(out, f(x))
+	}
+	return out
+}
+
+function main() {
+	repo := new Repository<string>()
+	repo.Add("a")
+	repo.Add("b")
+	fmt.Println(repo.All())
+
+	p := new Pair<string, int>("answer", 42)
+	fmt.Println(p.Key, p.Value)
+
+	fmt.Println(Map([]int{1, 2, 3}, func(i int) string { return fmt.Sprint(i * i) }))
+}

@@ -1,0 +1,49 @@
+package main
+
+import "fmt"
+
+abstract class Animal {
+	protected name string
+
+	constructor(name string) {
+		this.name = name
+	}
+
+	abstract function Speak() string
+
+	public function Sleep() {
+		fmt.Println(this.name, "is sleeping")
+	}
+}
+
+class Dog extends Animal {
+	constructor(name string) {
+		super(name)
+	}
+
+	override function Speak() string {
+		return this.name + " says Woof"
+	}
+}
+
+class Puppy extends Dog {
+	constructor(name string) {
+		super(name)
+	}
+
+	override function Speak() string {
+		return super.Speak() + " (squeaky)"
+	}
+}
+
+interface Speaker {
+	function Speak() string
+}
+
+function main() {
+	animals := []Speaker{new Dog("Rex"), new Puppy("Bit")}
+	for _, a := range animals {
+		fmt.Println(a.Speak())
+	}
+	new Puppy("Bit").Sleep()
+}

@@ -1,0 +1,105 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+enum Level {
+	Low
+	Medium
+	High
+}
+
+class Config {
+	public static Default Level = Level.Medium
+	private static created int
+
+	public static function Count() int {
+		return Config.created
+	}
+
+	private level Level
+
+	constructor(level Level) {
+		Config.created++
+		this.level = level
+	}
+
+	public property Level Level {
+		get {
+			return this.level
+		}
+		set {
+			if value > Level.High {
+				value = Level.High
+			}
+			this.level = value
+		}
+	}
+
+	public property Label string {
+		get {
+			return fmt.Sprintf("config(%v)", this.level)
+		}
+	}
+}
+
+class Stack<T> {
+	private items []T
+
+	public function Push(v T) {
+		this.items = append(this.items, v)
+	}
+
+	public function Pop() (T, error) {
+		var zero T
+		if len(this.items) == 0 {
+			return zero, errors.New("empty stack")
+		}
+		v := this.items[len(this.items)-1]
+		this.items = this.items[:len(this.items)-1]
+		return v, nil
+	}
+
+	public function Len() int {
+		return len(this.items)
+	}
+}
+
+class Singleton {
+	private static instance *Singleton
+	public Value int
+
+	private constructor() {
+		this.Value = 42
+	}
+
+	public static function Get() *Singleton {
+		if Singleton.instance == nil {
+			Singleton.instance = new Singleton()
+		}
+		return Singleton.instance
+	}
+}
+
+function main() {
+	c := new Config(Config.Default)
+	fmt.Println(c.Level, c.Label)
+	c.Level = Level.High
+	c.Level++
+	fmt.Println(c.Level, Config.Count())
+	new Config(Level.Low)
+	fmt.Println(Config.Count())
+
+	s := new Stack<string>()
+	s.Push("a")
+	s.Push("b")
+	v, _ := s.Pop()
+	fmt.Println(v, s.Len())
+	s.Pop()
+	_, err := s.Pop()
+	fmt.Println(err)
+
+	fmt.Println(Singleton.Get().Value, Singleton.Get() == Singleton.Get())
+}

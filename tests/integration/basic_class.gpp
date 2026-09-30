@@ -1,0 +1,32 @@
+package main
+
+import "fmt"
+
+class Person {
+	private name string
+	private age int
+
+	constructor(name string, age int) {
+		this.name = name
+		this.age = age
+	}
+
+	public function SayHello() {
+		fmt.Println("Hello, I am", this.name)
+	}
+
+	public function Birthday() {
+		this.age++
+	}
+
+	public function Age() int {
+		return this.age
+	}
+}
+
+function main() {
+	person := new Person("Tohid", 35)
+	person.SayHello()
+	person.Birthday()
+	fmt.Println(person.Age())
+}

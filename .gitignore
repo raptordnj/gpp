@@ -1,0 +1,8 @@
+# G++ build work directories and generated Go sources
+.gpp/
+
+# binaries
+/gpp
+/main
+/app
+*.exe
