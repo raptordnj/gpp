@@ -30,6 +30,9 @@ contents:
   - src: ./pkgroot/LICENSE
     dst: /usr/share/licenses/gpp/LICENSE
 
+archlinux:
+  packager: Tohidul Islam <raptor.dnj@gmail.com>
+
 # gpp invokes the Go toolchain for build/run. Distribution Go packages can
 # lag behind; recommend rather than require them so a go.dev install works.
 overrides:
