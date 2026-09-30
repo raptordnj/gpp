@@ -3,7 +3,7 @@ package parser
 import (
 	"go/token"
 
-	"gpp/compiler/ast"
+	"github.com/raptordnj/gpp/compiler/ast"
 )
 
 type stmtMode int

@@ -3,8 +3,8 @@ package parser
 import (
 	"go/token"
 
-	"gpp/compiler/ast"
-	"gpp/compiler/lexer"
+	"github.com/raptordnj/gpp/compiler/ast"
+	"github.com/raptordnj/gpp/compiler/lexer"
 )
 
 func (p *Parser) parseDecl() ast.Decl {

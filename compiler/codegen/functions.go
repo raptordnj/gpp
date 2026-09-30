@@ -5,7 +5,7 @@ import (
 	goast "go/ast"
 	"go/token"
 
-	"gpp/compiler/ast"
+	"github.com/raptordnj/gpp/compiler/ast"
 )
 
 // ---------------------------------------------------------------------------

@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"gpp/compiler"
+	"github.com/raptordnj/gpp/compiler"
 )
 
 // check compiles src and returns the diagnostics (empty when it compiles).

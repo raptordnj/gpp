@@ -11,9 +11,9 @@ import (
 	"go/token"
 	"strings"
 
-	"gpp/compiler/diag"
-	"gpp/compiler/lexer"
-	"gpp/compiler/parser"
+	"github.com/raptordnj/gpp/compiler/diag"
+	"github.com/raptordnj/gpp/compiler/lexer"
+	"github.com/raptordnj/gpp/compiler/parser"
 )
 
 type lineInfo struct {

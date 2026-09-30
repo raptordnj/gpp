@@ -31,9 +31,15 @@ values, the standard library and the Go backend.
 Requires Go 1.22 or newer (the Go toolchain is also the backend).
 
 ```bash
-git clone <this repository> gpp && cd gpp
-go install ./cmd/gpp          # installs the gpp command into $(go env GOPATH)/bin
+go install github.com/raptordnj/gpp/cmd/gpp@latest   # installs gpp into $(go env GOPATH)/bin
 gpp version
+```
+
+Or from a clone:
+
+```bash
+git clone https://github.com/raptordnj/gpp.git && cd gpp
+go install ./cmd/gpp
 ```
 
 ```text

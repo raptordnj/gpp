@@ -1,8 +1,8 @@
 package semantic
 
 import (
-	"gpp/compiler/ast"
-	"gpp/compiler/diag"
+	"github.com/raptordnj/gpp/compiler/ast"
+	"github.com/raptordnj/gpp/compiler/diag"
 )
 
 // Analyzer performs the declaration-level G++ semantic analysis.

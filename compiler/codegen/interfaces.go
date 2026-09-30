@@ -4,7 +4,7 @@ import (
 	goast "go/ast"
 	"go/token"
 
-	"gpp/compiler/ast"
+	"github.com/raptordnj/gpp/compiler/ast"
 )
 
 // interfaceDecl lowers "interface I { function M() }" to

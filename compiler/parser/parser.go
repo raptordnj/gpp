@@ -11,9 +11,9 @@ import (
 	"go/token"
 	"strings"
 
-	"gpp/compiler/ast"
-	"gpp/compiler/diag"
-	"gpp/compiler/lexer"
+	"github.com/raptordnj/gpp/compiler/ast"
+	"github.com/raptordnj/gpp/compiler/diag"
+	"github.com/raptordnj/gpp/compiler/lexer"
 )
 
 // Parser holds the parsing state for one file.

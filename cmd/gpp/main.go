@@ -17,8 +17,8 @@ import (
 	"runtime"
 	"strings"
 
-	"gpp/compiler"
-	"gpp/compiler/formatter"
+	"github.com/raptordnj/gpp/compiler"
+	"github.com/raptordnj/gpp/compiler/formatter"
 )
 
 const usage = `G++ compiler %s

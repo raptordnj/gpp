@@ -5,7 +5,7 @@
 // enums, new-expressions, super) have dedicated nodes.
 package ast
 
-import "gpp/compiler/diag"
+import "github.com/raptordnj/gpp/compiler/diag"
 
 // Pos is a byte offset into the source file.
 type Pos = diag.Pos

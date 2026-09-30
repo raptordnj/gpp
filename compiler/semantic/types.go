@@ -9,7 +9,7 @@ import (
 	"strings"
 	"sync"
 
-	"gpp/compiler/diag"
+	"github.com/raptordnj/gpp/compiler/diag"
 )
 
 // G++ reuses Go's type system: the lowered program is checked with go/types.

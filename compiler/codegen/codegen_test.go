@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"gpp/compiler"
+	"github.com/raptordnj/gpp/compiler"
 )
 
 func generate(t *testing.T, src string) string {

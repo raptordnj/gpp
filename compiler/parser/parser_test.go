@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"gpp/compiler/ast"
+	"github.com/raptordnj/gpp/compiler/ast"
 )
 
 func parse(t *testing.T, src string) *ast.File {

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"gpp/compiler"
+	"github.com/raptordnj/gpp/compiler"
 )
 
 // TestPrograms compiles every tests/integration/*.gpp and ../../examples/*.gpp

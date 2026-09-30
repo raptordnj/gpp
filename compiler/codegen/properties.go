@@ -6,8 +6,8 @@ import (
 	"go/types"
 	"reflect"
 
-	"gpp/compiler/diag"
-	"gpp/compiler/semantic"
+	"github.com/raptordnj/gpp/compiler/diag"
+	"github.com/raptordnj/gpp/compiler/semantic"
 )
 
 // Properties are lowered in two steps. During the first type check each

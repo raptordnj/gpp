@@ -8,8 +8,8 @@ import (
 	goast "go/ast"
 	"go/types"
 
-	"gpp/compiler/ast"
-	"gpp/compiler/diag"
+	"github.com/raptordnj/gpp/compiler/ast"
+	"github.com/raptordnj/gpp/compiler/diag"
 )
 
 // MemberKind classifies class members.

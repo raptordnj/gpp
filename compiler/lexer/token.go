@@ -12,7 +12,7 @@ import (
 	"fmt"
 	"go/token"
 
-	"gpp/compiler/diag"
+	"github.com/raptordnj/gpp/compiler/diag"
 )
 
 // Kind is the token kind. It is Go's token type.

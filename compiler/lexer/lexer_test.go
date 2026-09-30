@@ -4,7 +4,7 @@ import (
 	"go/token"
 	"testing"
 
-	"gpp/compiler/diag"
+	"github.com/raptordnj/gpp/compiler/diag"
 )
 
 func kinds(t *testing.T, src string) []Token {

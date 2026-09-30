@@ -15,8 +15,8 @@ import (
 	"reflect"
 	"strconv"
 
-	"gpp/compiler/ast"
-	"gpp/compiler/semantic"
+	"github.com/raptordnj/gpp/compiler/ast"
+	"github.com/raptordnj/gpp/compiler/semantic"
 )
 
 // Output is the result of lowering one package.

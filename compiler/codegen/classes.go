@@ -5,8 +5,8 @@ import (
 	goast "go/ast"
 	"go/token"
 
-	"gpp/compiler/ast"
-	"gpp/compiler/semantic"
+	"github.com/raptordnj/gpp/compiler/ast"
+	"github.com/raptordnj/gpp/compiler/semantic"
 )
 
 // Class lowering strategy

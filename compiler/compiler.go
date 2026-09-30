@@ -11,11 +11,11 @@ import (
 	"sort"
 	"strings"
 
-	"gpp/compiler/ast"
-	"gpp/compiler/codegen"
-	"gpp/compiler/diag"
-	"gpp/compiler/parser"
-	"gpp/compiler/semantic"
+	"github.com/raptordnj/gpp/compiler/ast"
+	"github.com/raptordnj/gpp/compiler/codegen"
+	"github.com/raptordnj/gpp/compiler/diag"
+	"github.com/raptordnj/gpp/compiler/parser"
+	"github.com/raptordnj/gpp/compiler/semantic"
 )
 
 // Version is the compiler version.

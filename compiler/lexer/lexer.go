@@ -5,7 +5,7 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"gpp/compiler/diag"
+	"github.com/raptordnj/gpp/compiler/diag"
 )
 
 // Lexer scans a source file into tokens.
