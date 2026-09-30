@@ -1,0 +1,44 @@
+# nfpm configuration for the Linux packages (.deb, .rpm, Arch .pkg.tar.zst).
+# Environment variables are provided by .github/workflows/release.yml:
+#   VERSION  package version without the leading "v" (e.g. 0.1.0)
+#   GOARCH   amd64 or arm64 (nfpm maps it to each format's arch name)
+# nfpm runs from a directory containing pkgroot/ with the gpp binary,
+# README.md and LICENSE (contents paths are not env-expanded).
+name: gpp
+version: ${VERSION}
+arch: ${GOARCH}
+platform: linux
+release: "1"
+section: devel
+priority: optional
+maintainer: Tohidul Islam <raptor.dnj@gmail.com>
+vendor: G++
+homepage: https://github.com/raptordnj/gpp
+license: MIT
+description: |
+  G++ compiler: Go with Java/C#-style object-oriented programming.
+  gpp compiles .gpp sources to Go and builds native executables
+  with the Go toolchain, which must be installed.
+
+contents:
+  - src: ./pkgroot/gpp
+    dst: /usr/bin/gpp
+    file_info:
+      mode: 0755
+  - src: ./pkgroot/README.md
+    dst: /usr/share/doc/gpp/README.md
+  - src: ./pkgroot/LICENSE
+    dst: /usr/share/licenses/gpp/LICENSE
+
+# gpp invokes the Go toolchain for build/run. Distribution Go packages can
+# lag behind; recommend rather than require them so a go.dev install works.
+overrides:
+  deb:
+    recommends:
+      - golang-go
+  rpm:
+    recommends:
+      - golang
+  archlinux:
+    depends:
+      - go

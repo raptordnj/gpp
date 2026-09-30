@@ -35,8 +35,25 @@ go install github.com/raptordnj/gpp/cmd/gpp@latest   # installs gpp into $(go en
 gpp version
 ```
 
-Prebuilt binaries for Linux, macOS and Windows (amd64/arm64) are attached to
-each [GitHub release](https://github.com/raptordnj/gpp/releases).
+### Prebuilt packages
+
+Every [GitHub release](https://github.com/raptordnj/gpp/releases) has prebuilt
+builds for amd64 and arm64. `gpp` calls the Go toolchain, so Go must be
+installed as well.
+
+| Platform | Asset | Install |
+|---|---|---|
+| Debian / Ubuntu | `gpp_<version>-1_amd64.deb` | `sudo apt install ./gpp_0.1.0-1_amd64.deb` |
+| RHEL / Fedora / Rocky / Alma | `gpp-<version>-1.x86_64.rpm` | `sudo dnf install ./gpp-0.1.0-1.x86_64.rpm` |
+| Arch Linux | `gpp-<version>-1-x86_64.pkg.tar.zst` | `sudo pacman -U gpp-0.1.0-1-x86_64.pkg.tar.zst` |
+| Other Linux | `gpp_<tag>_linux_<arch>.tar.gz` | extract and put `gpp` on your `PATH` |
+| macOS | `gpp_<tag>_darwin_<arch>.tar.gz` | extract and put `gpp` on your `PATH` |
+| Windows | `gpp_<tag>_windows_<arch>.zip` | extract and add `gpp.exe` to your `PATH` |
+
+arm64 packages use `arm64` (deb) and `aarch64` (rpm, Arch) in their names.
+`checksums.txt` has SHA-256 sums for every asset. On macOS, binaries
+downloaded through a browser may need `xattr -d com.apple.quarantine gpp`
+because they are not notarized.
 
 Or from a clone:
 
